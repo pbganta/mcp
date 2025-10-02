@@ -1,0 +1,12 @@
+###########################################################
+# Slurm's Generic Resource (GRES) configuration file
+###########################################################
+AutoDetect=off
+<% $nodes.each |$name, $attr| { -%>
+<% if $attr['specs']['gpus'] > 0 { -%>
+<% if $attr['specs']['mig'] and ! $attr['specs']['mig'].empty { -%>
+<% $attr['specs']['mig'].map|$key,$value| { -%>
+NodeName=<%= $name %> Name=gpu Type=<%= $key %> Count=<%= $value * $attr['specs']['gpus'] %> File=<%= join( range(0, $value * $attr['specs']['gpus'] - 1).map|$i| { "/dev/nvidia-mig-${key}-${i}" } , ',') %>
+<% }} else { -%>
+NodeName=<%= $name %> Name=gpu Count=<%= $attr['specs']['gpus'] %> File=<%= join( range(0, $attr['specs']['gpus']-1).map|$i| { "/dev/nvidia${i}" } , ',') %>
+<% }}} -%>
