@@ -18,8 +18,10 @@ node default {
     $classes = $include_all + $include_tags
   }
   include($classes)
-}
 
-node 'mgmt1.int.test-lion.tl.gcs-devcloud.hpc.lrz.de' {
   include profile::certs
 }
+
+# node 'mgmt1.int.test-lion.tl.gcs-devcloud.hpc.lrz.de' {
+#   include profile::certs
+# }
