@@ -45,7 +45,8 @@ class profile::reverse_proxy (
     $privkey_exists = false
   }
 
-  notice(" Babuu The fullchain exists and privkey exists is ${fullchain_exists} and ${privkey_exists} ")
+  notice(" Babuu The facts values are ${facts['letsencrypt']}  ")
+  notice(" Babuu The fullchain_exists and privkey_exists values are ${fullchain_exists} and ${privkey_exists} ")
   
   $configure_tls = ($privkey_exists and $fullchain_exists)
 
