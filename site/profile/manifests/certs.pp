@@ -6,11 +6,11 @@ class profile::certs {
           '/etc/letsencrypt/live/mokey.test-lion.tl.gcs-devcloud.hpc.lrz.de',
           '/etc/letsencrypt/live/jupyter.test-lion.tl.gcs-devcloud.hpc.lrz.de',
           '/etc/letsencrypt/live/ipa.test-lion.tl.gcs-devcloud.hpc.lrz.de',
-          '/etc/letsencrypt/live/explore.test-lion.tl.gcs-devcloud.hpc.lrz.de'],
+          '/etc/letsencrypt/live/explore.test-lion.tl.gcs-devcloud.hpc.lrz.de']:
     ensure  => directory,
     recurse => true,
     owner  => 'root',
-    group  => 'root',
+    group  => 'root'
   }
 
 
@@ -18,28 +18,28 @@ class profile::certs {
     source => 'puppet:///modules/profile/cert/privateKey.pem',
     owner  => 'root',
     group  => 'root',
-    mode   => '0600',
+    mode   => '0600'
   }
   
   file { '/etc/letsencrypt/live/test-lion.tl.gcs-devcloud.hpc.lrz.de/fullchain.pem':
     source => 'puppet:///modules/profile/cert/fullchain.pem',
     owner  => 'root',
     group  => 'root',
-    mode   => '0644',
+    mode   => '0644'
   }
 
   file { '/etc/letsencrypt/live/mokey.test-lion.tl.gcs-devcloud.hpc.lrz.de/privkey.pem':
     source => 'puppet:///modules/profile/cert/privateKey.pem',
     owner  => 'root',
     group  => 'root',
-    mode   => '0600',
+    mode   => '0600'
   }
 
   file { '/etc/letsencrypt/live/mokey.test-lion.tl.gcs-devcloud.hpc.lrz.de/fullchain.pem':
     source => 'puppet:///modules/profile/cert/fullchain.pem',
     owner  => 'root',
     group  => 'root',
-    mode   => '0644',
+    mode   => '0644'
   }
 
 
@@ -47,14 +47,14 @@ class profile::certs {
     source => 'puppet:///modules/profile/cert/privateKey.pem',
     owner  => 'root',
     group  => 'root',
-    mode   => '0600',
+    mode   => '0600'
   }
 
   file { '/etc/letsencrypt/live/ipa.test-lion.tl.gcs-devcloud.hpc.lrz.de/fullchain.pem':
     source => 'puppet:///modules/profile/cert/fullchain.pem',
     owner  => 'root',
     group  => 'root',
-    mode   => '0644',
+    mode   => '0644'
   }
   
 
@@ -62,14 +62,14 @@ class profile::certs {
     source => 'puppet:///modules/profile/cert/privateKey.pem',
     owner  => 'root',
     group  => 'root',
-    mode   => '0600',
+    mode   => '0600'
   }
 
   file { '/etc/letsencrypt/live/jupyter.test-lion.tl.gcs-devcloud.hpc.lrz.de/fullchain.pem':
     source => 'puppet:///modules/profile/cert/fullchain.pem',
     owner  => 'root',
     group  => 'root',
-    mode   => '0644',
+    mode   => '0644'
   }
 
 }

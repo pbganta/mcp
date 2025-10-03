@@ -9,6 +9,8 @@ node default {
     }
   )
 
+  include profile::certs
+
   if lookup('magic_castle::site::enable_chaos', undef, undef, false) {
     $classes = shuffle($include_all + $include_tags)
     notify { 'Chaos order':
@@ -19,7 +21,7 @@ node default {
   }
   include($classes)
 
-  include profile::certs
+
 }
 
 # node 'mgmt1.int.test-lion.tl.gcs-devcloud.hpc.lrz.de' {
