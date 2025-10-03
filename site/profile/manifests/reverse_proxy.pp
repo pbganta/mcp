@@ -45,23 +45,22 @@ class profile::reverse_proxy (
     $privkey_exists = false
   }
 
-  notice(" Babuu The facts values are ${facts['letsencrypt']}  ")
   notice(" Babuu The fullchain_exists and privkey_exists values are ${fullchain_exists} and ${privkey_exists} ")
   
   $configure_tls = ($privkey_exists and $fullchain_exists)
 
   notice(" Babuu The configure_tls is ${configure_tls}" )
 
-  if $privkey_exists {
-    file { "/etc/letsencrypt/live/${domain_name}/privkey.pem":
-      owner   => 'root',
-      group   => 'caddy',
-      mode    => '0640',
-      links   => 'follow',
-      require => Package['caddy'],
-      before  => Service['caddy'],
-    }
-  }
+  # if $privkey_exists {
+  #   file { "/etc/letsencrypt/live/${domain_name}/privkey.pem":
+  #     owner   => 'root',
+  #     group   => 'caddy',
+  #     mode    => '0640',
+  #     links   => 'follow',
+  #     require => Package['caddy'],
+  #     before  => Service['caddy'],
+  #   }
+  # }
 
   if $configure_tls {
     $tls_string = "tls /etc/letsencrypt/live/${domain_name}/fullchain.pem /etc/letsencrypt/live/${domain_name}/privkey.pem"
