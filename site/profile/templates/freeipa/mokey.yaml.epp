@@ -29,12 +29,12 @@ bind: "0.0.0.0"
 #------------------------------------------------------------------------------
 # SSL certificate 
 #------------------------------------------------------------------------------
-# cert: "/path/to/cert"
+cert: "/etc/letsencrypt/live/ipa.test-lion.tl.gcs-devcloud.hpc.lrz.de/fullchain.pem"
 
 #------------------------------------------------------------------------------
 # SSL private key 
 #-------------------------------------------------------------------
-# key: "/path/to/key"
+key: "/etc/letsencrypt/live/ipa.test-lion.tl.gcs-devcloud.hpc.lrz.de/privkey.pem" 
 
 #------------------------------------------------------------------------------
 # Password requirements
