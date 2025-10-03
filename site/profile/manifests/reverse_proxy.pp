@@ -35,6 +35,8 @@ class profile::reverse_proxy (
     require => Yumrepo['caddy-copr-repo'],
   }
 
+  notice(" Babuu The domain name is ${domain_name} ")
+  
   if $domain_name in $::facts['letsencrypt'] {
     $fullchain_exists = $::facts['letsencrypt'][$domain_name]['fullchain']
     $privkey_exists = $::facts['letsencrypt'][$domain_name]['privkey']
@@ -43,7 +45,11 @@ class profile::reverse_proxy (
     $privkey_exists = false
   }
 
+  notice(" Babuu The fullchain exists and privkey exists is ${fullchain_exists} and ${privkey_exists} ")
+  
   $configure_tls = ($privkey_exists and $fullchain_exists)
+
+  notice(" Babuu The configure_tls is ${configure_tls}" )
 
   if $privkey_exists {
     file { "/etc/letsencrypt/live/${domain_name}/privkey.pem":
